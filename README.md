@@ -10,6 +10,7 @@ It hangs of a host r1 on 172.19.0.1
 2) (4 marks) Describe the techniques used for network scanning.  
 To confirm that 22, 23 and 24 were open on 172.19.0.1:
 nmap -Pn -T3 --top-ports 1000 -sS -sV -O -oA scans/172.19.0.1-top1k 172.19.0.1
+Showed 22/ssh, 23/telnet, 445/smb
 
 Used:
 sed -n '1,120p' /home/tx48/loot/11-updated_samba/project_status.txt

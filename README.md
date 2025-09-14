@@ -1,17 +1,32 @@
 # Incident_1
 
 1) (5 marks) Draw the final topology of the discovered network of V.I.L.E.  
-
+Public web server at 10.10.10.12
+PHP site named FirstSecurity has a vulnerable index.php
+This all runs inside a Docker Container with hostname r2.
+It hangs of a host r1 on 172.19.0.1
 
 
 2) (4 marks) Describe the techniques used for network scanning.  
+To confirm that 22, 23 and 24 were open on 172.19.0.1:
+nmap -Pn -T3 --top-ports 1000 -sS -sV -O -oA scans/172.19.0.1-top1k 172.19.0.1
 
+Used:
+sed -n '1,120p' /home/tx48/loot/11-updated_samba/project_status.txt
+sed -n '1,200p' /home/tx48/loot/11-updated_samba/README.tx
+sed -n '1,200p' ~/CERT-ALERT-2025-08-09.txt
+
+In order to find hints
 
 
 3) (6 marks) Describe the techniques used for pivoting. 
+The index.php logic let me run system commands through a modified page. 
+I then used it to connect a reverse shell back to my box
+
+I also managed to gain SSH access by placing a public key under /home/okarun/.ssh/authorized_keys
 
 
-4) (2 marks) Alternatives/Enhancements/Out-of-class techniques used in the attack. 
+5) (2 marks) Alternatives/Enhancements/Out-of-class techniques used in the attack. 
 
 
 
